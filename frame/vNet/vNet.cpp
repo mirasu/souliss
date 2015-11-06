@@ -217,7 +217,7 @@ U8 vNet_Send(U16 addr, oFrame *frame, U8 len, U8 port)
 	#if(VNET_DEBUG)
     VNET_LOG(F("(vNet)<MEDIA><|0x"));
 	VNET_LOG(media,HEX);
-	VNET_LOG(">\r\n");
+	VNET_LOG(F(">\r\n"));
 	#endif
 		
 	frame_pnt = &vNet_header[0];							// Get header pointer
@@ -250,7 +250,7 @@ U8 vNet_Send(U16 addr, oFrame *frame, U8 len, U8 port)
 	VNET_LOG(F("|0x"));
 	VNET_LOG(vNet_Media[media-1].src_addr,HEX);
 	
-	VNET_LOG(">\r\n");
+	VNET_LOG(F(">\r\n"));
 	#endif
 	
 	
@@ -357,7 +357,7 @@ U8 vNet_SendBroadcast(oFrame *frame, U8 len, U8 port, U16 broadcast_addr)
 			VNET_LOG(F("|0x"));
 			VNET_LOG(vNet_Media[media].src_addr,HEX);
 			
-			VNET_LOG(">\r\n");
+			VNET_LOG(F(">\r\n"));
 			#endif
 			
 
@@ -460,7 +460,7 @@ U8 vNet_SendMulticast(oFrame *frame, U8 len, U8 port, U16 multicastgroup)
 		VNET_LOG(F("|0x"));
 		VNET_LOG(vNet_Media[media].src_addr,HEX);
 		
-		VNET_LOG(">\r\n");
+		VNET_LOG(F(">\r\n"));
 		#endif
 		
 
@@ -562,7 +562,7 @@ U8 vNet_SendRoute(U16 routed_addr, U8 media, U8 *data, U8 len)
 		VNET_LOG(F("|0x"));
 		VNET_LOG(data[i],HEX);
 	}
-	VNET_LOG(">\r\n");
+	VNET_LOG(F(">\r\n"));
 	#endif
 		
 
@@ -888,7 +888,7 @@ void vNet_SetAddress(U16 addr, U8 media)
 	// Print address  
     VNET_LOG(F("(vNet)<SETADDR><|0x"));
 	VNET_LOG(vNet_Media[media-1].src_addr,HEX);
-	VNET_LOG(">\r\n");
+	VNET_LOG(F(">\r\n"));
 	#endif	
 	
 	// Write address into the driver
@@ -1150,7 +1150,7 @@ void vNet_OutPath(U16 addr, U16 *routed_addr, U8 *media)
 	#if(VNET_DEBUG)
     VNET_LOG(F("(vNet)<OUTPATH><|0x"));
 	VNET_LOG(*media,HEX);
-	VNET_LOG(">\r\n");
+	VNET_LOG(F(">\r\n"));
 	#endif
 	
 	// Bridge to a node within the same subnet
@@ -1182,7 +1182,7 @@ void vNet_OutPath(U16 addr, U16 *routed_addr, U8 *media)
 		#if(VNET_DEBUG)
 		VNET_LOG(F("(vNet)<NHBOR><|0x"));
 		VNET_LOG(*media,HEX);
-		VNET_LOG(">\r\n");
+		VNET_LOG(F(">\r\n"));
 		#endif		
 		
 		// Search for devices that shall be reached
@@ -1437,7 +1437,7 @@ void vNet_ParseFrame(U8 media)
 		VNET_LOG(F("|0x"));
 		VNET_LOG(*(vNet_Media_Data[media-1].data+i),HEX);
 	}
-	VNET_LOG(">\r\n");
+	VNET_LOG(F(">\r\n"));
 	#endif
 
 	// Sometimes broadcast data can be used to build routing and bridging paths	
@@ -1491,7 +1491,7 @@ void vNet_ParseFrame(U8 media)
 				VNET_LOG(vNet_Media_Data[media-1].o_src_addr & submask,HEX);
 				VNET_LOG(F("|0x"));
 				VNET_LOG(vNet_Media_Data[media-1].src_addr,HEX);
-				VNET_LOG(">\r\n");
+				VNET_LOG(F(">\r\n"));
 				#endif
 			}	
 		}
